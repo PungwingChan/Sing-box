@@ -264,11 +264,11 @@ cat > config.json << EOF
         ],
         "tls": {
             "enabled": true,
-            "server_name": "www.cerebrium.ai",
+            "server_name": "www.speedtest.net",
             "reality": {
                 "enabled": true,
                 "handshake": {
-                    "server": "www.cerebrium.ai",
+                    "server": "www.speedtest.net",
                     "server_port": 443
                 },
                 "private_key": "$private_key",

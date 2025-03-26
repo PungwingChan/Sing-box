@@ -52,7 +52,7 @@ if [[ $tcp_ports -ne 1 || $udp_ports -ne 2 ]]; then
         while true; do
             tcp_port=$(shuf -i 10000-65535 -n 1) 
             result=$(devil port add tcp $tcp_port 2>&1)
-            if [[ $result == *"succesfully"* ]]; then
+            if [[ $result == *"Ok"* ]]; then
                 green "已添加TCP端口: $tcp_port"
                 break
             else
@@ -67,7 +67,7 @@ if [[ $tcp_ports -ne 1 || $udp_ports -ne 2 ]]; then
         while [[ $udp_ports_added -lt $udp_ports_to_add ]]; do
             udp_port=$(shuf -i 10000-65535 -n 1) 
             result=$(devil port add udp $udp_port 2>&1)
-            if [[ $result == *"succesfully"* ]]; then
+            if [[ $result == *"Ok"* ]]; then
                 green "已添加UDP端口: $udp_port"
                 if [[ $udp_ports_added -eq 0 ]]; then
                     udp_port1=$udp_port
@@ -464,7 +464,7 @@ get_name() { if [ "$HOSTNAME" = "s1.ct8.pl" ]; then SERVER="CT8"; else SERVER=$(
 NAME="$ISP-$(get_name)"
 yellow "注意：v2ray或其他软件的跳过证书验证需设置为true,否则hy2或tuic节点可能不通\n"
 cat > ${FILE_PATH}/list.txt <<EOF
-vless://$UUID@$available_ip:$VLESS_PORT?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cerebrium.ai&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$NAME-reality
+vless://$UUID@$available_ip:$VLESS_PORT?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.speedtest.net&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$NAME-reality
 
 hysteria2://$UUID@$available_ip:$HY2_PORT/?sni=www.bing.com&alpn=h3&insecure=1#$NAME-hysteria2
 
